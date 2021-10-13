@@ -24,3 +24,6 @@ A maioria dos problemas reais são não linearmente separáveis, por isso as fun
 Na Figura a seguir, é ilustrada uma RNA com funções de ativação na camada oculta e na saída. Na saída, essas funções de ativação são responsáveis por determinar a classe de alguma entrada. Por exemplo, qual é a saída que desejamos ao colocar a figura de um gato em nossa rede neural? Desejamos que ela diga que é um gato, mas como ela vai nos dizer isso?
 
 No nosso simples exemplo, uma forma de resolver seria utilizar valores entre 0 e 1 na saída, isso pode ser feito com a Sigmoide ou ReLu. Sendo assim, utilizando uma única saída, quando a saída for 0, é um gato, já quando a saída for 1, é um cachorro. Simples né?
+
+# Implementação em Python
+Agora é a hora de colocar a mão na massa! A rede neural pode ser implementada em qualquer linguagem, algumas possuem bibliotecas que já oferecem a rede neural. Na nossa implementação, utilizaremos a linguagem Python e a biblioteca scikit-learn. Além disso, faremos também um exemplo utilizando o banco de dados de flores Iris.
