@@ -21,9 +21,13 @@ Essa explicação pode ser expandida e usada para qualquer tipo de dado, por exe
 ## Funções de Ativação
 As Funções de Ativação têm um papel importante para as redes neurais, são elas que permitem a não-linearidade da rede, esse termo pode parecer confuso no primeiro momento, mas podemos pensar nisso como uma forma de separar classes não linearmente separáveis. Isso é mostrado na Figura a seguir, em que há duas classes: azul e vermelho, além disso, X_1 e X_2 são as entradas.
 
+![alt text](https://github.com/victoribeir0/redes_neurais_python/blob/main/rnn_victor_git2.jpg?raw=true)
+
 A maioria dos problemas reais são não linearmente separáveis, por isso as funções de ativação não-lineares são tão importantes, elas permitem separar essas classes. Exstem diversas funções, as mais usadas são: Sigmoide, Tangente Hiperbólica e ReLu, cada uma com suas particularidades e aplicações.
 
 Na Figura a seguir, é ilustrada uma RNA com funções de ativação na camada oculta e na saída. Na saída, essas funções de ativação são responsáveis por determinar a classe de alguma entrada. Por exemplo, qual é a saída que desejamos ao colocar a figura de um gato em nossa rede neural? Desejamos que ela diga que é um gato, mas como ela vai nos dizer isso?
+
+![alt text](https://github.com/victoribeir0/redes_neurais_python/blob/main/rnn_victor_git3.jpg?raw=true)
 
 No nosso simples exemplo, uma forma de resolver seria utilizar valores entre 0 e 1 na saída, isso pode ser feito com a Sigmoide ou ReLu. Sendo assim, utilizando uma única saída, quando a saída for 0, é um gato, já quando a saída for 1, é um cachorro. Simples né?
 
