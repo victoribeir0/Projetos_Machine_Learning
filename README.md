@@ -32,4 +32,4 @@ Na Figura a seguir, é ilustrada uma RNA com funções de ativação na camada o
 No nosso simples exemplo, uma forma de resolver seria utilizar valores entre 0 e 1 na saída, isso pode ser feito com a Sigmoide ou ReLu. Sendo assim, utilizando uma única saída, quando a saída for 0, é um gato, já quando a saída for 1, é um cachorro. Simples né?
 
 # Implementação em Python
-Agora é a hora de colocar a mão na massa! A rede neural pode ser implementada em qualquer linguagem, algumas possuem bibliotecas que já oferecem a rede neural. Na nossa implementação, utilizaremos a linguagem Python e a biblioteca scikit-learn. Além disso, faremos também um exemplo utilizando o banco de dados de flores Iris.
+Agora é a hora de colocar a mão na massa! A rede neural pode ser implementada em qualquer linguagem, algumas possuem bibliotecas que já oferecem a rede neural. Na nossa implementação, utilizaremos a linguagem Python e a biblioteca scikit-learn. Além disso, faremos também um exemplo utilizando o banco de dados de flores Iris. O algoritmo está no arquivo 'redes_neurais.ipynb'.
