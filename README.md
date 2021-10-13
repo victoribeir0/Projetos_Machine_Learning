@@ -4,6 +4,8 @@ Neste artigo, descobriremos alguns aspectos básicos sobre as Redes Neurais Arti
 
 De forma geral, as RNA têm como objetivo estimar uma saída, dada uma entrada. Por exemplo, caso você dê uma figura de um gato, a rede neural deve estimar que é um gato, caso você coloque um cachorro, a rede neural deve dizer que é um cachorro. A rede é capaz de fazer isso após ter aprendido os padrões de gato e cachorro, isso acontece pois a rede conseguiu otimizar seus parâmetros a fim de obter o menor erro de classificação. Na Figura a seguir é ilustrado o processo de previsão do animal, em gato ou cachorro. Note que w1 e w2 correspondem aos parâmetros que são otimizados pela rede.
 
+![alt text](https://github.com/victoribeir0/redes_neurais_python/blob/main/rnn_victor_git.jpg?raw=true)
+
 Observem a estrutura da rede neural, existem três camadas: entrada, oculta e saída. Em outras redes pode haver mais de uma camada oculta. Cada círculo representa um elemento, esses elementos podem ou não ser conectados a todos os outros elementos da camada seguinte.
 
 # Como a rede aprende?
