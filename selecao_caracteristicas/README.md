@@ -1,0 +1,3 @@
+Talvez você já tenha ouvido falar em seleção de características, seleção de variáveis ou ainda seleção de features, todos esses termos referem-se à técnicas bastante utilizadas em aprendizado de máquina, sendo responsáveis por determinar quais características são mais importantes para um modelo de classificação. Essas técnicas são muito úteis quando existem muitas características sendo consideradas, podendo existir redundância entre elas, ou características pouco relevantes.
+
+Antes de mergulharmos na seleção de características, alguns aspectos precisam ser brevemente esclarecidos, especialmente os termos “características” e “modelos de classificação”.
