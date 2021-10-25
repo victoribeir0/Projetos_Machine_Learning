@@ -1,13 +1,13 @@
-% Determina a matriz de distâncias, p(i,j), para o t-sne.
+% Determina a matriz de distÃ¢ncias, p(i,j), para o t-sne.
 % X = Matriz com os dados (NxDim).
-% sig = Variância da gaussiana.
+% sig = VariÃ¢ncia da gaussiana.
 
-% px = Matriz de distâncias (probabilidades), p(i,j).
+% px = Matriz de distÃ¢ncias (probabilidades), p(i,j).
 function px = get_mat_dist_tsne2(X,sig)
 tic;
 
 [N,Dim] = size(X);
-% Caso a matriz esteja transposta (DimxN), transpõe para NxDim.
+% Caso a matriz esteja transposta (DimxN), transpÃµe para NxDim.
 if Dim > N
     X = X';
     [N,~] = size(X);
@@ -27,7 +27,7 @@ for i = 1:N
     px(i,:) = mat_temp;            
 end
 
-% Força a simetria da matriz p(i,j).
+% ForÃ§a a simetria da matriz p(i,j).
 % px = (px+px')/(2*N^2);
 px = px+px';
 imagesc(px);
