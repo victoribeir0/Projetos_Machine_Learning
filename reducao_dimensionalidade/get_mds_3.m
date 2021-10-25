@@ -1,14 +1,14 @@
 % Multidimensional Scaling (MDS):
-% Dim = Núm. de dimensões no vetor X.
-% dx = Matriz de distâncias.
+% Dim = NÃºm. de dimensÃµes no vetor X.
+% dx = Matriz de distÃ¢ncias.
 
 function X = get_mds_3(Dim, dx)
 tic;
-lr = 0.001;  % learn_rate = Taxa de importância para o gradiente.
-n_iter = 200; % Núm. de iterações.
+lr = 0.001;  % learn_rate = Taxa de importÃ¢ncia para o gradiente.
+n_iter = 200; % NÃºm. de iteraÃ§Ãµes.
 
 N = size(dx,1);
-X = rand(N,Dim);       % Inicialização aleatória da observação inicial.
+X = rand(N,Dim);       % InicializaÃ§Ã£o aleatÃ³ria da observaÃ§Ã£o inicial.
 J_sum = 0;
 d_prev = zeros(N,N);
 
@@ -31,7 +31,7 @@ for ite = 1:n_iter
     J(ite) = J_sum;
     J_sum = 0;
         
-    % Caso o gradiente não mude, para o laço.
+    % Caso o gradiente nÃ£o mude, para o laÃ§o.
     if ite > 1
         if J(ite) == J(ite-1) || J(ite) > J(ite-1)
             break;
@@ -39,21 +39,21 @@ for ite = 1:n_iter
     end  
     
     clc
-    fprintf('Iteração: %d/%d', ite, n_iter);
+    fprintf('IteraÃ§Ã£o: %d/%d', ite, n_iter);
 end
 
 % Plota a curva da derivada, normalizada entre 0 e 1.
-plot(J/max(J),'b'); grid on; title('Custo'); xlabel('Iterações'); 
+plot(J/max(J),'b'); grid on; title('Custo'); xlabel('IteraÃ§Ãµes'); 
 
 fprintf('\n');
 toc;
 disp(J(end)/max(J));
 end
 
-% Gradiente, X1, X2 = Observações com n dimensões. delta = Intervalo para diferença finita.
+% Gradiente, X1, X2 = ObservaÃ§Ãµes com n dimensÃµes. delta = Intervalo para diferenÃ§a finita.
 function res = gradiente(X, Y, dx, k)
 d_prev = sqrt((X-Y)*(X-Y)');
-d_prev = diag(d_prev); % distâncias euclidianas de X(k,:) para todos os outros.
+d_prev = diag(d_prev); % distÃ¢ncias euclidianas de X(k,:) para todos os outros.
 a = d_prev - dx';
 b = X-Y;
 c = zeros(size(X,1),size(X,2));
