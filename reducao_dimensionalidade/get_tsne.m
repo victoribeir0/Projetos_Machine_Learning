@@ -1,24 +1,24 @@
 % t-SNE, gradiente descendente com momento:
-% learn_rate = Taxa de importância para o gradiente.
-% n_iter = Núm. iterações.    |    Dim = Dimensões a serem usadas. 
-% dx = Matriz de distâncias (NxN).
-% n_momento = Núm. de gradientes anteriores a serem usados no momento.
+% learn_rate = Taxa de importÃ¢ncia para o gradiente.
+% n_iter = NÃºm. iteraÃ§Ãµes.    |    Dim = DimensÃµes a serem usadas. 
+% dx = Matriz de distÃ¢ncias (NxN).
+% n_momento = NÃºm. de gradientes anteriores a serem usados no momento.
 
 % X = Matriz com os vetores otimizados (NxDim).
-% J = Função de custo.
+% J = FunÃ§Ã£o de custo.
 
 function [X_final,J] = get_tsne(Dim, px)
-lr = 2;  % learn_rate = Taxa de importância para o gradiente.
-n_iter = 500; % Núm. de iterações.
+lr = 2;  % learn_rate = Taxa de importÃ¢ncia para o gradiente.
+n_iter = 500; % NÃºm. de iteraÃ§Ãµes.
 n_momento = 10;
 
-% Normalização, é importante, mas depende muito dos dados.
+% NormalizaÃ§Ã£o, Ã© importante, mas depende muito dos dados.
 px = 1e-3*((px-min(px(:)))/(max(px(:))-min(px(:))));
 px(px==0) = eps; % Evita que haja elementos com probabilidade zero.
 
-N = size(px,1);      % Núm. de vetores.
+N = size(px,1);      % NÃºm. de vetores.
 
-% Inicialização aleatória da observação inicial.
+% InicializaÃ§Ã£o aleatÃ³ria da observaÃ§Ã£o inicial.
 X = 1e-3*randn(N,Dim);
 
 m = 1;
@@ -44,7 +44,7 @@ for ite = 1:n_iter
         if ite > n_momento
             m_coef = 0.99;                        
             for c = abs(-n_momento:-1)
-                % Decaimento exponencial (os mais próximos tem pesos maiores).
+                % Decaimento exponencial (os mais prÃ³ximos tem pesos maiores).
                 momento(k,:,c) = (1-m_coef)^s(g) * momento(k,:,c);
                 g = g+1;
             end  
@@ -66,7 +66,7 @@ for ite = 1:n_iter
     qx = get_qx(X); % Calcula o q(i,j).
     qx(qx==0) = eps;
     
-    % Calcula o custo em cada iteração.    
+    % Calcula o custo em cada iteraÃ§Ã£o.    
     J(ite) = sum(sum(px.*log(px./qx)));
     
     % Caso o custo atual seja menor que o anterior, atuliza o X_final.
@@ -76,7 +76,7 @@ for ite = 1:n_iter
         end
     end
               
-    % Testa se o custo está parado, se estiver, para o laço for.
+    % Testa se o custo estÃ¡ parado, se estiver, para o laÃ§o for.
     if ite > 2
         if J(ite) == J(ite-1) || abs(J(ite)) < 0.0001 || abs(J(ite)) > 2*abs(J(ite-1))
             break;
@@ -84,7 +84,7 @@ for ite = 1:n_iter
     end
     
     clc;
-    fprintf('Iteração: %d/%d', ite, n_iter);           
+    fprintf('IteraÃ§Ã£o: %d/%d', ite, n_iter);           
 end
 
 fprintf('\n');
@@ -92,7 +92,7 @@ toc;
 
 % Plota a curva da derivada, normalizada entre 0 e 1.
 J = abs(J);
-plot(J/max(J),'b'); grid on; title('Custo'); xlabel('Iterações'); 
+plot(J/max(J),'b'); grid on; title('Custo'); xlabel('IteraÃ§Ãµes'); 
 hold on;
 
 qx = get_qx(X_final); % Calcula o q(i,j).
@@ -104,7 +104,7 @@ disp(abs(J(ite)/max(J)));
 end
 
 % Determnia o gradiente
-% X, Y = Observações com n dimensões;
+% X, Y = ObservaÃ§Ãµes com n dimensÃµes;
 function res = gradiente(X, Y, px, qx, d_prev, k)
 d_prev = (1+d_prev.^2).^-1;
 d_prev(k) = 0;
