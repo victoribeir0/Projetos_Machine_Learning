@@ -1,39 +1,39 @@
 % GloVe com gradiente descendente:
-% Dim = N˙m. de dimensıes no vetor X.
-% dx = Matriz de dist‚ncias.
+% Dim = N√∫m. de dimens√µes no vetor X.
+% dx = Matriz de dist√¢ncias.
 
 function X = get_glove(Dim, dx)
 tic;
-lr = 0.0001;  % learn_rate = Taxa de import‚ncia para o gradiente.
-n_iter = 500; % N˙m. de iteraÁıes.
+lr = 0.0001;  % learn_rate = Taxa de import√¢ncia para o gradiente.
+n_iter = 500; % N√∫m. de itera√ß√µes.
 
-dx = dx.*(1-eye(size(dx,1)))+eps; % Torna as diagnais iguais a zero (evita dist‚ncia negativa).
+dx = dx.*(1-eye(size(dx,1)))+eps; % Torna as diagnais iguais a zero (evita dist√¢ncia negativa).
 dx = log(dx);
 dx = dx.*(1-eye(size(dx,1)));
 
-N = size(dx,1); % N˙m. de sÌmbolos.
-X = randn(N,Dim); % InicializaÁ„o aleatÛria dos sÌmbolos.
+N = size(dx,1); % N√∫m. de s√≠mbolos.
+X = randn(N,Dim); % Inicializa√ß√£o aleat√≥ria dos s√≠mbolos.
 
-global delta;  % Define o delta para a diferenÁa finita.
+global delta;  % Define o delta para a diferen√ßa finita.
 delta = 0.00001;
-global max_dx; % Define o m·ximo da matriz de dist‚ncias dx.
+global max_dx; % Define o m√°ximo da matriz de dist√¢ncias dx.
 max_dx = max(dx(:));
 
-for ite = 1:n_iter % Cada iteraÁ„o.
-    for k = 1:N    % Cada sÌmbolo k.
+for ite = 1:n_iter % Cada itera√ß√£o.
+    for k = 1:N    % Cada s√≠mbolo k.
         
         grad = -lr*gradiente(X(k,:), X, dx(k,:));                 
         X(k,:) = X(k,:) + grad;
     end
     
-    % Calcula o custo em cada iteraÁ„o.
+    % Calcula o custo em cada itera√ß√£o.
     J_sum = 0;
     for k = 1:N        
         J_sum = J_sum + custo(X(k,:),X,dx(k,:));                
     end
     J(ite) = J_sum;
     
-    % Caso n„o haja variaÁ„o no custo, parar.
+    % Caso n√£o haja varia√ß√£o no custo, parar.
     if ite > 1
         if J(ite) == J(ite-1)
             break;
@@ -47,13 +47,13 @@ plot(J/max(J),'b'); grid on;
 disp(J(end)/max(J));
 end
 
-% FunÁ„o de custo, X = ObservaÁ„o com n dimensıes.
+% Fun√ß√£o de custo, X = Observa√ß√£o com n dimens√µes.
 % X = word vec 1, Y = word vec 2, X(end) = bias 1, Y(end) = bias 2.
 % dx = ponto X(i,j).
 function res = custo(X,Y,dx)
-global max_dx; % M·ximo de X(i,j).
+global max_dx; % M√°ximo de X(i,j).
 a = (X*Y' - dx).^2;
-b = (dx./max_dx).^(3/4); % FunÁ„o de peso.
+b = (dx./max_dx).^(3/4); % Fun√ß√£o de peso.
 c = a.*b;
 res = sum(c);
 end
