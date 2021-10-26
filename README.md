@@ -2,6 +2,6 @@ Neste repositório estão incluídos diferentes projetos na área de ciência de
 
 * Introdução as Redes Neurais ([link](https://github.com/victoribeir0/Projetos_Ciencia_de_Dados/tree/main/redes_neurais))
 * Técnicas de Seleção de Características ([link](https://github.com/victoribeir0/Projetos_Ciencia_de_Dados/tree/main/selecao_caracteristicas))
-* ALgoritmos de Redução de Dimensionalidade (incluindo t-SNE e MDS) ([link](https://github.com/victoribeir0/Projetos_Machine_Learning/tree/main/reducao_dimensionalidade)).
+* Algoritmos de Redução de Dimensionalidade (incluindo t-SNE e MDS) ([link](https://github.com/victoribeir0/Projetos_Machine_Learning/tree/main/reducao_dimensionalidade)).
 
 
